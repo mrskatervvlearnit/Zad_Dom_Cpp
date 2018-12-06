@@ -4,7 +4,7 @@
 #include <conio.h>
 using namespace std;
 enum num{none,one,two,three,four,five,six,seven,eight,nine,ten};
-    num place[9][9];
+    num place[9][9]={(num)0};;
 
 bool good(num nr,int x, int y)
 {
