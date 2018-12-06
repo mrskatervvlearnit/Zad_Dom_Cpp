@@ -1,0 +1,13 @@
+#include <iostream>
+using namespace std;
+int main()
+{ int a=0,b=0,c=0;
+ 
+    cin>>a;
+    cin>>b;
+    cin>>c;
+    if(a*a+b*b==c*c)cout<<"tworzy";
+    else if(b*b+c*c==a*a)cout<<"tworzy";
+    else if(c*c+a*a==b*b)cout<<"tworzy";
+    else cout<<"nie tworzy";
+}
