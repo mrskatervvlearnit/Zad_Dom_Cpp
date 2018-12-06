@@ -1,0 +1,63 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+#include <conio.h>
+using namespace std;
+enum num{none,one,two,three,four,five,six,seven,eight,nine,ten};
+    num place[9][9];
+
+bool good(num nr,int x, int y)
+{
+    int a=x%3,b=y%3;
+
+    for(int i=x-a;i<(x-a)+3;i++)
+    {
+        for(int j=y-b;j<(y-b)+3;j++)
+        {
+            if(nr==place[i][j]) return false;
+        }
+    }
+    for(int i=0;i<9;i++)
+    {
+        if(nr==place[i][y]) return false;
+    }
+    for(int i=0;i<9;i++)
+    {
+        if(nr==place[x][i]) return false;
+    }
+    return true;
+}
+int main()
+{
+    srand( time( NULL ) );
+    int los;
+    int a=0;
+    for(int i=0;i<9;i++)
+    {
+            for(int j=0;j<9;j++)
+            {
+                while(true)
+                {
+                    a++;
+                    if(a==100)
+                    {
+                        for(int k=0;k<=j;k++)
+                        {
+                            place[i][k]=(num)0;
+                        }
+                        j=-1;
+                        a=0;
+                        break;
+                    }
+                    los=((rand()%9)+1);
+                    if(good((num)los,i,j))
+                    {
+                        place[i][j]=(num)los;
+                        a=0;
+                        break;
+                    }
+                }
+            }
+	cout<<place[i][0]<<" "<<place[i][1]<<" "<<place[i][2]<<" "<<place[i][3]<<" "<<place[i][4]<<" "<<place[i][5]<<" "<<place[i][6]<<" "<<place[i][7]<<" "<<place[i][8]<<endl;
+    }
+}
