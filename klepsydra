@@ -11,7 +11,7 @@ int main()
     }
     for(int i=0,j=n-1;i<=n;i++,j--)
     {
-        if(i!=n/2)cout<<gwiazdy<<endl;
+        if(i!=n/2 || n%2==1)cout<<gwiazdy<<endl;
         if(i<n/2)
         {
             gwiazdy[i]=' ';
